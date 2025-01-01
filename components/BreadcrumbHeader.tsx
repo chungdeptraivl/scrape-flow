@@ -1,5 +1,6 @@
 "use client";
 
+import { MobileSidebar } from "@/components/Sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +15,7 @@ function BreadcrumbHeader() {
   const paths = pathName === "/" ? [""] : pathName?.split("/");
   return (
     <div className="flex items-center float-start">
+      <MobileSidebar />
       <Breadcrumb>
         <BreadcrumbList>
           {paths.map((path, index) => (
