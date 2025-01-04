@@ -1,24 +1,37 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { SquareDashedMousePointer } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Logo({
   fontSize = "2xl",
   iconSize = 20,
+  isLogo = false,
 }: {
   fontSize?: string;
   iconSize?: number;
+  isLogo?: boolean;
 }) {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (!isLogo) {
+      setAnimate(true);
+    }
+  }, [isLogo]);
+
   return (
     <Link
       href={"/"}
       className={cn(
         "text-2xl font-extrabold flex items-center gap-2",
-        fontSize
+        fontSize,
+        !isLogo && animate ? "logo-slide-in" : ""
       )}
     >
-      <div className=" rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 p-2">
+      <div className="rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 p-2">
         <SquareDashedMousePointer size={iconSize} className="stroke-white" />
       </div>
       <div>

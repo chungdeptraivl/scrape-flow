@@ -83,7 +83,42 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.cl-internal-1dauvpw {
+  display: none;
+}
+
+.cl-internal-1p733cp {
+  box-shadow: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.cl-internal-1j7ahlv {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+
+.cl-internal-d50gl1 {
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.logo-slide-in {
+  animation: slideIn 1s ease-out forwards;
 }

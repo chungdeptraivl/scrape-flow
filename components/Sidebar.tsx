@@ -46,7 +46,7 @@ function DesktopSidebar() {
   return (
     <div className="hidden relative md:block min-w-[280px] max-w-[280px] h-screen overflow-hidden w-full bg-primary/5 dark:bg-secondary/30 dark:text-foreground text-muted-foreground border-r-2 border-separate">
       <div className="flex items-center justify-center gap-2 border-b-[1px] border-separate p-4">
-        <Logo />
+        <Logo isLogo />
       </div>
       <div className="p-2">TODO CREDITS</div>
       <div className="flex flex-col p-2 gap-2">
@@ -91,7 +91,7 @@ export function MobileSidebar() {
             className="w-[400px] sm:w-[540px] space-y-4"
             side={"left"}
           >
-            <Logo />
+            <Logo isLogo />
             <div className="flex flex-col gap-1">
               {routes.map((route) => (
                 <Link
