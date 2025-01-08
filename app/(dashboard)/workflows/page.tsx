@@ -1,10 +1,11 @@
 "use client";
 
 import { GetWorkflowsForUser } from "@/actions/workflows/getWorkflowsForUser";
+import CreateWorkflowDialog from "@/app/(dashboard)/workflows/_components/CreateWorkflowDialog";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Workflow } from "@/types/Workflows";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, InboxIcon } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 
 function WorkflowPage() {
@@ -15,6 +16,8 @@ function WorkflowPage() {
           <h1 className="text-3xl font-bold">Workflows</h1>
           <p className="text-muted-foreground">Manage your workflows</p>
         </div>
+
+        <CreateWorkflowDialog />
       </div>
 
       <div className="h-full py-6">
@@ -67,6 +70,24 @@ function UserWorkflows() {
           Something went wrong, Please try again later
         </AlertDescription>
       </Alert>
+    );
+  }
+
+  if (workflows?.length === 0) {
+    return (
+      <div className="flex flex-col gap-4 h-full items-center justify-center">
+        <div className="rounded-full bg-accent w-20 h-20 flex items-center justify-center">
+          <InboxIcon size={40} className="stroke-primary" />
+        </div>
+        <div className="flex flex-col gap-1 text-center">
+          <p className="font-bold">No workflow created yet</p>
+          <p className="text-sm text-muted-foreground">
+            Click the button below to create your first workflow
+          </p>
+        </div>
+
+        <CreateWorkflowDialog triggerText="Create your first workflow" />
+      </div>
     );
   }
 
